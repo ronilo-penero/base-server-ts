@@ -1,0 +1,27 @@
+{
+    "defaultSeverity": "warn",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "jsRules": {},
+    "rules": {
+		"max-line-length": {
+			"options": {
+				"limit": 120
+			}
+		},
+		"indent": {
+			"options": ["tabs"]
+		},
+		"linebreak-style": {
+			"options": "LF"
+		},
+		"quotemark": {
+			"options": ["single"]
+		},
+		"semicolon":{
+			"options": ["always"]
+		}
+	},
+    "rulesDirectory": []
+}

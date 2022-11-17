@@ -1,0 +1,29 @@
+version: "2"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ${DOCKERFILE}
+    container_name: base_server_ts_container
+    ports:
+      - "6000:3000"
+    env_file:
+      - .env
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+    command: npm run start:debug
+  db:
+    image: "postgres:13.3"
+    container_name: base_server_ts_postgres_container
+    ports:
+      - "6001:5432"
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_HOST_AUTH_METHOD: "trust"
+      POSTGRES_USER: ${DB_USERNAME}
+    volumes:
+      - db_data:/var/lib/postgresql/data
+volumes:
+  db_data:
